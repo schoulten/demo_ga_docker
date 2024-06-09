@@ -1,0 +1,13 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: schoulten/r4.4.0:main-a250750768bd1e25f8a46bf08cb27d977b1ffa8e
+    steps:
+      - name: Test script
+        run: print("Hello from R!")
+        shell: Rscript {0}
