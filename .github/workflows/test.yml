@@ -6,7 +6,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: schoulten/r4.4.0:main-a250750768bd1e25f8a46bf08cb27d977b1ffa8e
+      image: schoulten/r4.4.0:main-5b2ad4a41f74d74dc945d78e7a728068811a046b
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
