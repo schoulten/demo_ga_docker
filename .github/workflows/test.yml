@@ -15,6 +15,13 @@ jobs:
       - name: Run ELT code
         run: |
           source("R/extract.R")
-          caged_urls <- map_content()
-          download_ftp(url = caged_urls[1:2], dest_dir = "data")
+          download_ftp(url = "ftp://ftp.mtps.gov.br/pdet/microdados/NOVO%20CAGED/2020/202001/CAGEDMOV202001.7z", dest_dir = "data")
         shell: Rscript {0}
+      - name: Commit & Push
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add .
+          git commit -m "ELT workflow run" || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
+
