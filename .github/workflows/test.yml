@@ -15,7 +15,10 @@ jobs:
       - name: Run ELT code
         run: |
           source("extract.R")
-          download_ftp(url = "ftp://ftp.mtps.gov.br/pdet/microdados/NOVO%20CAGED/2020/202001/CAGEDMOV202001.7z", dest_dir = "data")
+          download_ftp(
+          url = "https://ftp.ibge.gov.br/Precos_Indices_de_Precos_ao_Consumidor/IPCA/Resultados_por_Subitem/2023/ipca_202312Subitem.zip", 
+          dest_dir = "data"
+          )
         shell: Rscript {0}
       - name: Commit & Push
         run: |
