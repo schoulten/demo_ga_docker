@@ -14,7 +14,7 @@ jobs:
         uses: r-lib/actions/setup-renv@v2
       - name: Run ELT code
         run: |
-          source("R/extract.R")
+          source("extract.R")
           download_ftp(url = "ftp://ftp.mtps.gov.br/pdet/microdados/NOVO%20CAGED/2020/202001/CAGEDMOV202001.7z", dest_dir = "data")
         shell: Rscript {0}
       - name: Commit & Push
