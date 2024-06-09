@@ -10,6 +10,11 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-      - name: Test script
-        run: source("script.R")
+      - name: Install R packages
+        uses: r-lib/actions/setup-renv@v2
+      - name: Run ELT code
+        run: |
+          source("R/extract.R")
+          caged_urls <- map_content()
+          download_ftp(url = caged_urls[1:2], dest_dir = "data")
         shell: Rscript {0}
